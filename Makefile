@@ -81,6 +81,7 @@ DIST          = /usr/share/qt4/mkspecs/common/unix.conf \
 QMAKE_TARGET  = illumination
 DESTDIR       = 
 TARGET        = illumination
+TARGET_RASP   = illuminationRasp
 
 first: all
 ####### Implicit rules

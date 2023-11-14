@@ -2,6 +2,8 @@
 #include <vector>
 #include <thread>
 #include <chrono>
+#include <QLabel>
+#include <QWidget>
 // #include <wiringPi.h>
 
 
@@ -11,12 +13,14 @@ class Light {
   int GpiDown;
   bool IsUp;
   std::string Position;
+  QLabel *Label;
   const int MILISECONDEXECUTION = 1000;
 
 public:
-  Light(int GpiUp, int GpiDown, bool isUp, std::string Position);
+  Light(int GpiUp, int GpiDown, bool isUp, std::string Position, QLabel *labe);
   std::string ReturnStatus();
   void ChangePosition();
+  void UpdateLabels();
   bool GetPosition();
   std::string CheckWhereIsLight();
 };

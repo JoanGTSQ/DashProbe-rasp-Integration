@@ -6,7 +6,6 @@ int main(int argc, char *argv[]) {
 
   MainWindow w;
   Dashboard dash(&w.ui);
-  dash.SetUpDashboard();
   w.setDash(&dash);
   w.resize(400,400);
   w.show();

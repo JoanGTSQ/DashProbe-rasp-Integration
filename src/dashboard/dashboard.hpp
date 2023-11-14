@@ -9,7 +9,6 @@ class Dashboard {
   Ui::MainWindow *ui;
 public:
   Dashboard(Ui::MainWindow *ui);
-  void SetUpDashboard();
   void UpdateDataLights();
   void ChangeLightsPosition();
   void ChangeSingleLightPosition(std::string light);
