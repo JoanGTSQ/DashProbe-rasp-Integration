@@ -35,7 +35,7 @@ public slots:
     }
   }
   void printStatus() { dash->UpdateDataLights(); }
-  void loadSystem() { dash->LoadDashboard(); }
+  void loadSystem() { dash->Eyelashing(); }
 
 public:
   Dashboard *dash;

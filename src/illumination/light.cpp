@@ -18,6 +18,7 @@ std::string Light::ReturnStatus() {
 }
 
 void Light::UpdateLabels() {
+    std::cout << "Test" << std::endl;
     QString miQString = QString::fromStdString((this->GetPosition()) ? "Arriba" : "Abajo");
     this->Label->setText(miQString);
 }
@@ -26,14 +27,16 @@ void Light::ChangePosition() {
   auto inicio = std::chrono::high_resolution_clock::now();
 
   // READ DATA AND UPDATE
+  std::cout << this->IsUp << std::endl;
   this->IsUp = !IsUp;
+  std::cout << this->IsUp << std::endl;
   if (this->IsUp) {
     Raspi.Execute(this->GpiDown, SECONDS_EXECUTION);
   } else {
     Raspi.Execute(this->GpiUp, SECONDS_EXECUTION);
   }
 
-  UpdateLabels();
+
 
   auto fin = std::chrono::high_resolution_clock::now();
   auto duracion =
@@ -41,6 +44,7 @@ void Light::ChangePosition() {
   std::cout << "Light " << this->Position << ": has executed his work in "
             << duracion.count() << " miliseconds, now " << ReturnStatus()
             << std::endl;
+  UpdateLabels();
 }
 
 bool Light::GetPosition() { return this->IsUp; }

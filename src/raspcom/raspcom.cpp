@@ -13,14 +13,14 @@ Raspberry::Raspberry(){
     // }
     for (int i = 0; i <= sizeof(GPIList); i++) {
         GPIList[i] = false;
+//        std::cout << GPIList[i] << std::endl;
     }
 }
 void Raspberry::IsConnected(QLabel *labe){
-    labe->setText("Conectado");
+    labe->setText("<font color='green'>Conectado");
 }
 void Raspberry::Execute(int GPI, int Miliseconds) {
-  GPI = GPI;
-  Miliseconds = Miliseconds;
+//  std::cout << GPI << Miliseconds << std::endl;
   std::this_thread::sleep_for(std::chrono::seconds(Miliseconds));
   // digitalWrite(GPI, HIGH);
   // delay(Miliseconds);

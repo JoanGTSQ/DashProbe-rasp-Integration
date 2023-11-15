@@ -13,6 +13,7 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
+#include <QtGui/QFrame>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
 #include <QtGui/QMainWindow>
@@ -38,6 +39,8 @@ public:
     QPushButton *loadSystemButton;
     QLabel *label_3;
     QLabel *label_rasp_connected;
+    QFrame *frame;
+    QLabel *label_4;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -86,6 +89,16 @@ public:
         label_rasp_connected = new QLabel(centralwidget);
         label_rasp_connected->setObjectName(QString::fromUtf8("label_rasp_connected"));
         label_rasp_connected->setGeometry(QRect(90, 380, 91, 16));
+        frame = new QFrame(centralwidget);
+        frame->setObjectName(QString::fromUtf8("frame"));
+        frame->setGeometry(QRect(10, 10, 381, 371));
+        frame->setAutoFillBackground(true);
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+        label_4 = new QLabel(frame);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setGeometry(QRect(0, 0, 376, 361));
+        label_4->setAlignment(Qt::AlignCenter);
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);
@@ -107,6 +120,7 @@ public:
         loadSystemButton->setText(QApplication::translate("MainWindow", "CARGAR SISTEMA", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("MainWindow", "Raspberry", 0, QApplication::UnicodeUTF8));
         label_rasp_connected->setText(QApplication::translate("MainWindow", "No conectado", 0, QApplication::UnicodeUTF8));
+        label_4->setText(QApplication::translate("MainWindow", "CARGANDO", 0, QApplication::UnicodeUTF8));
         Q_UNUSED(MainWindow);
     } // retranslateUi
 

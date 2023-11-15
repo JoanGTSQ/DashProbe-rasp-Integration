@@ -7,6 +7,7 @@
 #include "../illumination/light.hpp"
 #include "../../ui_mainwindow.h"  // Ajusta la ruta según la ubicación real de ui_mainwindow.h
 #include "../raspcom/raspcom.hpp"
+#include <atomic>
 
 
 class Dashboard {
@@ -19,6 +20,7 @@ public:
   void ChangeLightsPosition();
   void ChangeSingleLightPosition(std::string light);
   void LoadDashboard();
+  void Eyelashing();
 };
 
 #endif
