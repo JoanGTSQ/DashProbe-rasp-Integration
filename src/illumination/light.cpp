@@ -1,6 +1,8 @@
 #include "light.hpp"
 #include <iostream>
 
+
+
 Light::Light(int gpiUp, int gpiDown, bool isUp, std::string position, QLabel *labe) {
   this->IsUp = isUp;
   this->GpiUp = gpiUp;
@@ -25,11 +27,10 @@ void Light::ChangePosition() {
 
   // READ DATA AND UPDATE
   this->IsUp = !IsUp;
-
   if (this->IsUp) {
-    Execute(this->GpiDown, SECONDS_EXECUTION);
+    Raspi.Execute(this->GpiDown, SECONDS_EXECUTION);
   } else {
-    Execute(this->GpiUp, SECONDS_EXECUTION);
+    Raspi.Execute(this->GpiUp, SECONDS_EXECUTION);
   }
 
   UpdateLabels();
@@ -43,7 +44,5 @@ void Light::ChangePosition() {
 }
 
 bool Light::GetPosition() { return this->IsUp; }
-
-
 
 std::string Light::CheckWhereIsLight(){ return this->Position; }

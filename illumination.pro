@@ -8,9 +8,10 @@ DEPENDPATH += . src src/dashboard src/illumination
 INCLUDEPATH += . src/dashboard src/illumination
 
 # Input
-HEADERS += src/dashboard/dashboard.hpp src/illumination/light.hpp src/mainwindow.h
+HEADERS += src/dashboard/dashboard.hpp src/illumination/light.hpp src/mainwindow.h \
+    src/raspcom/raspcom.hpp
 FORMS += src/mainwindow.ui
 SOURCES += src/main.cpp \
            src/dashboard/dashboard.cpp \
            src/illumination/light.cpp \
-           src/illumination/RaspCom.cpp
+    src/raspcom/raspcom.cpp

@@ -1,19 +1,23 @@
 #include "dashboard.hpp"
 
 
-
 Dashboard::Dashboard(Ui::MainWindow *ui)
     : ui(ui)  // Inicializa el puntero a la interfaz de usuario
 {
-    // if (wiringPiSetup() == -1) {
-    //     // Manejo de error en caso de fallo
-    //     exit();
-    // }
-    // Set up dashboard layout
     Light light1(21, 23, false, "Left", ui->label_luz_izq);
     Light light2(22, 24, false, "Right", ui->label_luz_drc1);
-    lights.push_back(light1);
-    lights.push_back(light2);
+    Raspi.IsConnected(ui->label_rasp_connected);
+    // Set up dashboard layout
+    if (Raspi.AssignGPI(21) && Raspi.AssignGPI(23)){
+        lights.push_back(light1);
+    } else {
+        std::cout << "No se puede iniciar luz izq" << std::endl;
+    }
+    if (Raspi.AssignGPI(22) && Raspi.AssignGPI(24)){
+        lights.push_back(light2);
+    } else {
+        std::cout << "No se puede iniciar luz drc" << std::endl;
+    }
 
 }
 

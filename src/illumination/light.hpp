@@ -1,14 +1,18 @@
+#ifndef LIGHT_HPP
+#define LIGHT_HPP
+
 #include <iostream>
 #include <vector>
 #include <thread>
 #include <chrono>
 #include <QLabel>
 #include <QWidget>
+#include "../raspcom/raspcom.hpp"
 // #include <wiringPi.h>
 
 
 class Light {
-  const int SECONDS_EXECUTION = 0;
+  const int SECONDS_EXECUTION = 2;
   int GpiUp;
   int GpiDown;
   bool IsUp;
@@ -17,6 +21,8 @@ class Light {
   const int MILISECONDEXECUTION = 1000;
 
 public:
+
+
   Light(int GpiUp, int GpiDown, bool isUp, std::string Position, QLabel *labe);
   std::string ReturnStatus();
   void ChangePosition();
@@ -25,4 +31,5 @@ public:
   std::string CheckWhereIsLight();
 };
 
-void Execute(int GPI, int Miliseconds);
+
+#endif
