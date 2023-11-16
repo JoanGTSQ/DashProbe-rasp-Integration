@@ -10,7 +10,7 @@ class Raspberry{
     bool GPIList[27];
 public:
     Raspberry();
-    void IsConnected(QLabel *labe);
+    void SetUp(QLabel *labe);
     void Execute(int GPI, int Miliseconds);
     bool AssignGPI(int GPI);
 };

@@ -6,18 +6,19 @@
 Raspberry Raspi;
 
 Raspberry::Raspberry(){
-    // if (wiringPiSetup() == -1) {
-    //     // Manejo de error en caso de fallo
-    //     exit();
-    //
-    // }
     for (int i = 0; i <= sizeof(GPIList); i++) {
         GPIList[i] = false;
 //        std::cout << GPIList[i] << std::endl;
     }
 }
-void Raspberry::IsConnected(QLabel *labe){
-    labe->setText("<font color='green'>Conectado");
+void Raspberry::SetUp(QLabel *labe){
+    // if (wiringPiSetup() == -1) {
+    //     // Manejo de error en caso de fallo
+    //     exit();
+    //
+    // } else{
+//        labe->setText("<font color='green'>Conectado");
+//    }
 }
 void Raspberry::Execute(int GPI, int Miliseconds) {
 //  std::cout << GPI << Miliseconds << std::endl;

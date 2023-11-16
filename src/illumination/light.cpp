@@ -1,5 +1,4 @@
 #include "light.hpp"
-#include <iostream>
 
 
 
@@ -18,7 +17,6 @@ std::string Light::ReturnStatus() {
 }
 
 void Light::UpdateLabels() {
-    std::cout << "Test" << std::endl;
     QString miQString = QString::fromStdString((this->GetPosition()) ? "Arriba" : "Abajo");
     this->Label->setText(miQString);
 }
@@ -26,24 +24,22 @@ void Light::UpdateLabels() {
 void Light::ChangePosition() {
   auto inicio = std::chrono::high_resolution_clock::now();
 
-  // READ DATA AND UPDATE
-  std::cout << this->IsUp << std::endl;
   this->IsUp = !IsUp;
-  std::cout << this->IsUp << std::endl;
+
   if (this->IsUp) {
     Raspi.Execute(this->GpiDown, SECONDS_EXECUTION);
   } else {
     Raspi.Execute(this->GpiUp, SECONDS_EXECUTION);
   }
 
-
-
   auto fin = std::chrono::high_resolution_clock::now();
-  auto duracion =
-      std::chrono::duration_cast<std::chrono::milliseconds>(fin - inicio);
+
+  auto duracion = std::chrono::duration_cast<std::chrono::milliseconds>(fin - inicio);
+
   std::cout << "Light " << this->Position << ": has executed his work in "
             << duracion.count() << " miliseconds, now " << ReturnStatus()
             << std::endl;
+
   UpdateLabels();
 }
 

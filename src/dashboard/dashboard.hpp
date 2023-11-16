@@ -5,9 +5,10 @@
 #include <iostream>
 #include <thread>
 #include "../illumination/light.hpp"
-#include "../../ui_mainwindow.h"  // Ajusta la ruta según la ubicación real de ui_mainwindow.h
+#include "../../ui_Qmainwindow.h"  // Ajusta la ruta según la ubicación real de ui_mainwindow.h
 #include "../raspcom/raspcom.hpp"
 #include <atomic>
+#include <unistd.h>               // for linux
 
 
 class Dashboard {
