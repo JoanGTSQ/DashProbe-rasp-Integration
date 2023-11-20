@@ -6,6 +6,9 @@
 #include <QPushButton>
 #include <QRadioButton>
 #include <iostream>
+#include <QGraphicsLineItem>
+#include <QGraphicsScene>
+#include <QGraphicsView>
 
 class MainWindow : public QMainWindow {
   Q_OBJECT
@@ -13,12 +16,13 @@ class MainWindow : public QMainWindow {
 public:
   MainWindow(QWidget *parent = nullptr) : QMainWindow(parent) {
     ui.setupUi(this);
+    ui.tabWidget->setTabText(0, "Luz");
+    ui.tabWidget->setTabText(1, "Tablero");
+    ui.tabWidget->setTabText(2, "Ajustes");
 
-    connect(ui.changeWindowButton, SIGNAL(clicked()), this, SLOT(cargarVentana()));
 
-    ui.widget->setVisible(false);
 
-    connect(ui.changeButtonLights, SIGNAL(clicked()), this, SLOT(changeSingleLight()));
+    connect(ui.changeButtonLights, SIGNAL(clicked()), this, SLOT(ChangeSingleLight()));
 
     connect(ui.changeLightPositionTest, SIGNAL(clicked()), this,
             SLOT(printStatus()));
@@ -29,20 +33,11 @@ public:
 
 
 public slots:
-  void cargarVentana(){
-    ui.frame->setVisible(false);
-    ui.widget->setVisible(true);
+  void ChangeSingleLight();
+  void printStatus() {
+      dash->UpdateDataLights();
+      ui.line->setStyleSheet("transform: rotate(45deg);");
   }
-  void changeSingleLight() {
-    if (ui.radioButtonLeftLight->isChecked()) {
-      dash->ChangeSingleLightPosition("Left");
-    } else if (ui.radioButtonTwoLights->isChecked()) {
-      dash->ChangeLightsPosition();
-    } else if (ui.radioButtonRightLight->isChecked()) {
-      dash->ChangeSingleLightPosition("Right");
-    }
-  }
-  void printStatus() { dash->UpdateDataLights(); }
   void loadSystem() { dash->Eyelashing(); }
 
 public:

@@ -6,15 +6,16 @@ TEMPLATE = app
 TARGET = 
 DEPENDPATH += . src src/dashboard src/illumination
 INCLUDEPATH += . src/dashboard src/illumination
-
 # Input
 HEADERS += src/dashboard/dashboard.hpp src/illumination/light.hpp \
     src/raspcom/raspcom.hpp \
-    src/Qmainwindow.h
+    src/Qmainwindow.h \
+    src/rfidrasp/rfidrasp.hpp
 FORMS += \
     src/Qmainwindow.ui
 SOURCES += src/main.cpp \
            src/dashboard/dashboard.cpp \
            src/illumination/light.cpp \
     src/raspcom/raspcom.cpp \
-    src/qmainwindow.cpp
+    src/qmainwindow.cpp \
+    src/rfidrasp/rfidrasp.cpp

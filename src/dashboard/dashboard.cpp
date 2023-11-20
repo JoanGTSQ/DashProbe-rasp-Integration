@@ -19,6 +19,18 @@ void Dashboard::UpdateDataLights() {
   }
 }
 
+bool VerifyDevices(){
+    if ((Raspi.AssignGPI(11) && Raspi.AssignGPI(13))
+            && (Raspi.AssignGPI(15) && Raspi.AssignGPI(16))){
+    } else {
+        exit(1);
+    }
+    if (Raspi.AssignGPI(22)  && Raspi.AssignGPI(24)  && Raspi.AssignGPI(19)  && Raspi.AssignGPI(21)  && Raspi.AssignGPI(23)){
+        return true;
+    }
+
+}
+
 Dashboard::Dashboard(Ui::MainWindow *ui)
     : ui(ui)  // Inicializa el puntero a la interfaz de usuario
 {
@@ -29,15 +41,9 @@ Dashboard::Dashboard(Ui::MainWindow *ui)
 
     // Set up dashboard layout
 
-    if ((Raspi.AssignGPI(21) && Raspi.AssignGPI(23)) && (Raspi.AssignGPI(22) && Raspi.AssignGPI(24))){
+    if (VerifyDevices()){
         lights.push_back(light1);
         lights.push_back(light2);
-        ui->frame->setVisible(false);
-    } else {
-        std::string error = "No se puede iniciar luces";
-        QString qError = QString::fromStdString(error);
-        ui->label_4->setText("<b><font color='red'>ERROR CON LUCES<br/> " + qError + "</font></b>");
-        exit(1);
     }
     UpdateDataLights();
     ui->radioButtonTwoLights->setChecked(true);

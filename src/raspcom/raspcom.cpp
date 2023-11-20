@@ -12,16 +12,15 @@ Raspberry::Raspberry(){
     }
 }
 void Raspberry::SetUp(QLabel *labe){
-    // if (wiringPiSetup() == -1) {
-    //     // Manejo de error en caso de fallo
-    //     exit();
-    //
-    // } else{
-//        labe->setText("<font color='green'>Conectado");
-//    }
+    //if (wiringPiSetup() == -1) {
+    //  //Manejo de error en caso de fallo
+    //  exit();
+    //} else{
+    //  labe->setText("<font color='green'>Conectado");
+    //}
 }
 void Raspberry::Execute(int GPI, int Miliseconds) {
-//  std::cout << GPI << Miliseconds << std::endl;
+  //std::cout << GPI << Miliseconds << std::endl;
   std::this_thread::sleep_for(std::chrono::seconds(Miliseconds));
   // digitalWrite(GPI, HIGH);
   // delay(Miliseconds);
