@@ -3,7 +3,7 @@
 ######################################################################
 
 TEMPLATE = app
-TARGET = 
+TARGET = bin/illumination 
 DEPENDPATH += . src src/dashboard src/illumination
 INCLUDEPATH += . src/dashboard src/illumination
 # Input

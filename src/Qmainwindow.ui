@@ -199,17 +199,56 @@
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-     <widget class="Line" name="line">
+     <widget class="QLabel" name="timeLabel">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>100</y>
-        <width>111</width>
+        <x>130</x>
+        <y>90</y>
+        <width>251</width>
         <height>16</height>
        </rect>
       </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="start">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>40</y>
+        <width>80</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>start</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="stop">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>40</y>
+        <width>80</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>stop</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="reset">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>40</y>
+        <width>80</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>reset</string>
       </property>
      </widget>
     </widget>
